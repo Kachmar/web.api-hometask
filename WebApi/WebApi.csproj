@@ -7,8 +7,8 @@
     <PackageReference Include="Swashbuckle.AspNetCore" Version="5.5.1" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Web.Api.Demo\Ado.Net\ADO.NET.csproj" />
-    <ProjectReference Include="..\..\Web.Api.Demo\Models\Models.csproj" />
-    <ProjectReference Include="..\..\Web.Api.Demo\UniversityServices\Services.csproj" />
+    <ProjectReference Include="..\ADO.NET\ADO.NET.csproj" />
+    <ProjectReference Include="..\Models\Models.csproj" />
+    <ProjectReference Include="..\UniversityServices\Services.csproj" />
   </ItemGroup>
 </Project>
