@@ -30,11 +30,15 @@ namespace WebApi
 
             services.AddControllers();
             var connectionString = Configuration.GetConnectionString("DefaultConnection");
-
-            //TODO Add missing service registrations
             
             services.AddScoped<CourseService>();
+            services.AddScoped<HomeTaskService>();
+            services.AddScoped<StudentService>();
+
             services.AddScoped<IRepository<Student>>(p => new StudentRepository(connectionString));
+            services.AddScoped<IRepository<Course>>(p => new CourseRepository(connectionString));
+            services.AddScoped<IRepository<HomeTask>>(p => new HomeTaskRepository(connectionString));
+            services.AddScoped<IRepository<HomeTaskAssessment>>(p => new HomeTaskAssessmentRepository(connectionString));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

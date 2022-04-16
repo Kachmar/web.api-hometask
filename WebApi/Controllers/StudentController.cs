@@ -23,6 +23,15 @@ namespace WebApi.Controllers
         {
             return Ok(_studentService.GetAllStudents().Select(student => StudentDto.FromModel(student)));
         }
+        // Post api/Student
+        [HttpPost]
+        public ActionResult Create([FromBody] StudentDto value)
+        {
+            var result = _studentService.CreateStudent(value.ToModel());
+            if (result.HasErrors)
+                return BadRequest(result.Errors);
+            return Accepted();
+        }
 
         // GET api/Student/5
         [HttpGet("{id}")]

@@ -22,6 +22,15 @@ namespace WebApi.Controllers
         {
             return Ok(_courseService.GetAllCourses().Select(course => CourseDto.FromModel(course)));
         }
+        // Post api/Course
+        [HttpPost]
+        public ActionResult Create([FromBody] CourseDto value)
+        {
+            var result = _courseService.CreateCourse(value.ToModel());
+            if (result.HasErrors)
+                return BadRequest(result.Errors);
+            return Accepted();
+        }
 
         // GET api/Course/5
         [HttpGet("{id}")]
