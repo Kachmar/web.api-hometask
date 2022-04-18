@@ -8,41 +8,41 @@ namespace WebApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class StudentController : ControllerBase
+    public class HomeTask : ControllerBase
     {
-        private readonly StudentService _studentService;
+        private readonly HomeTaskService _hometaskService;
 
-        public StudentController(StudentService studentService)
+        public HomeTask(HomeTaskService hometaskService)
         {
-            _studentService = studentService;
+            _hometaskService = hometaskService;
         }
 
         // GET: api/Student
         [HttpGet]
-        public ActionResult<IEnumerable<StudentDto>> Get()
+        public ActionResult<IEnumerable<HomeTaskDto>> Get()
         {
-            return Ok(_studentService.GetAllStudents().Select(student => StudentDto.FromModel(student)));
+            return Ok(_hometaskService.GetAllHomeTasks().Select(task => HomeTaskDto.FromModel(task)));
         }
 
         // GET api/Student/5
         [HttpGet("{id}")]
-        public ActionResult<StudentDto> Get(int id)
+        public ActionResult<HomeTaskDto> Get(int id)
         {
-            var student = _studentService.GetStudentById(id);
+            var task = _hometaskService.GetHomeTaskById(id);
 
-            if (student == null)
+            if (task == null)
             {
                 return NotFound();
             }
 
-            return Ok(StudentDto.FromModel(student));
+            return Ok(HomeTaskDto.FromModel(task));
         }
         
         // PUT api/Student/5
         [HttpPut("{id}")]
-        public ActionResult Put(int id, [FromBody] StudentDto value)
+        public ActionResult Put(int id, [FromBody] HomeTaskDto value)
         {
-            var result = _studentService.UpdateStudent(value.ToModel());
+            var result = _hometaskService.UpdateHomeTask(value.ToModel());
             if (result.HasErrors)
             {
                 return BadRequest(result.Errors);
@@ -54,13 +54,13 @@ namespace WebApi.Controllers
         [HttpDelete("{id}")]
         public ActionResult Delete(int id)
         {
-            _studentService.DeleteStudent(id);
+            _hometaskService.DeleteHomeTask(id);
             return Accepted();
         }
         [HttpPost]
-        public ActionResult Post([FromBody] StudentDto value)
+        public ActionResult Post([FromBody] HomeTaskDto value)
         {
-            var insertresult = _studentService.CreateStudent(value.ToModel());
+            var insertresult = _hometaskService.CreateHomeTask(value.ToModel());
             if (insertresult.HasErrors)
             {
                 return BadRequest(insertresult.Errors);
