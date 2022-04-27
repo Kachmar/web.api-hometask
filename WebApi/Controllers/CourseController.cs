@@ -56,5 +56,15 @@ namespace WebApi.Controllers
             _courseService.DeleteCourse(id);
             return Accepted();
         }
+        [HttpPost]
+        public ActionResult Post([FromBody] CourseDto value)
+        {
+            var insertresult = _courseService.CreateCourse(value.ToModel());
+            if (insertresult.HasErrors)
+            {
+                return BadRequest(insertresult.Errors);
+            }
+            return Accepted();
+        }
     }
 }

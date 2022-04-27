@@ -7,7 +7,7 @@
     <PackageReference Include="Swashbuckle.AspNetCore" Version="5.5.1" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ADO.NET\ADO.NET.csproj" />
+    <ProjectReference Include="..\EntityFrameWork\EntityFrameWork.csproj" />
     <ProjectReference Include="..\Models\Models.csproj" />
     <ProjectReference Include="..\UniversityServices\Services.csproj" />
   </ItemGroup>

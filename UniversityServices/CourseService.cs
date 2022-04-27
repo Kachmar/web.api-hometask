@@ -14,10 +14,10 @@ namespace Services
         private readonly IRepository<HomeTask> _homeTaskRepository;
         private readonly IRepository<HomeTaskAssessment> _homeTaskAssessmentRepository;
 
-        public CourseService()
-        {
+        //public CourseService()
+        //{
 
-        }
+        //}
 
         public CourseService(IRepository<Course> courseRepository,
             IRepository<Student> studentRepository,
