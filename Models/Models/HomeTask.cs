@@ -19,6 +19,6 @@
 
         public virtual Course Course { get; set; }
 
-        public virtual List<HomeTaskAssessment> HomeTaskAssessments { get; set; } = new List<HomeTaskAssessment>();
+        public virtual List<HomeTaskAssessment> HomeTaskAssessments { get; set; }
     }
 }

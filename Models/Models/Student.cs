@@ -19,9 +19,9 @@
 
         public string Notes { get; set; }
 
-        public virtual List<HomeTaskAssessment> HomeTaskAssessments { get; set; } = new List<HomeTaskAssessment>();
+        public virtual List<HomeTaskAssessment> HomeTaskAssessments { get; set; }
 
-        public virtual List<Course> Courses { get; set; } = new List<Course>();
+        public virtual List<Course> Courses { get; set; }
 
     }
 }

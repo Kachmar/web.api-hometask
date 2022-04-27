@@ -15,8 +15,8 @@
 
         public int PassCredits { get; set; }
 
-        public virtual List<HomeTask> HomeTasks { get; set; } = new List<HomeTask>();
+        public virtual List<HomeTask> HomeTasks { get; set; } 
 
-        public virtual List<Student> Students { get; set; } = new List<Student>();
+        public virtual List<Student> Students { get; set; }
     }
 }
